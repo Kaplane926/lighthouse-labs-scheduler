@@ -3,7 +3,7 @@ import "components/InterviewerList.scss"
 import InterviewerListItem from "./InterviewerListItem"
 
 export default function InterviewerList(props){
-  const interviewersArray = props.interviewers
+  const interviewersArray = props.interviewers[0]
   function isSelected(array){
     if(props.value === array.id){
       return true

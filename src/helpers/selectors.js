@@ -3,7 +3,6 @@
     let appointments = []
     for(const days of state.days){
       if (days.name === day){
-        console.log(day)
         appointments = days.appointments.map(id=> state.appointments[id] )
       
       }
@@ -28,3 +27,14 @@ export function getInterview(state, interview){
  
 };
   
+
+export function getInterviewersForDay(state, day) {
+  let interviewers = []
+  for(const days of state.days){
+    if (days.name === day){
+      interviewers = days.interviewers.map(id=> state.interviewers[id] )
+    
+    }
+  }
+  return interviewers
+};
