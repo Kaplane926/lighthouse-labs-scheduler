@@ -6,20 +6,29 @@ import "components/Application.scss";
 import Appointment from "components/appointments/index";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 import useVisualMode from "hooks/useVisualMode"
+import useApplicationData from "hooks/useApplicationData"
 
 
 export default function Application(props) {
-  const [state, setState] = useState({
+  const {
+    state,
+    setDay,
+    bookInterview,
+    cancelInterview,
+    
+  } = useApplicationData();
+
+  /*const [state, setState] = useState({
     day: "Monday",
     days: [],
     appointments: {},
     interviewers: {}
-  });
+  });*/
   
   const dailyAppointments = getAppointmentsForDay(state, state.day);
-  const setDay = day => setState({ ...state, day });
+  //const setDay = day => setState({ ...state, day });
   const dailyInterviewers = getInterviewersForDay(state, state.day);
-  function bookInterview(id, interview) {
+  /*function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -66,7 +75,8 @@ export default function Application(props) {
     
       
   }
-  useEffect(()=>{
+*/
+  /*useEffect(()=>{
 
 
     
@@ -78,6 +88,7 @@ export default function Application(props) {
       setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
     })
   }, [])
+*/
 
   return (
     <main className="layout">
