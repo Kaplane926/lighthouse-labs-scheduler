@@ -37,14 +37,14 @@ export default function Appointment(props){
       })
       .catch(()=>{
         transition(ERROR_SAVE, true)
-      })
+      });
       
        
 
       
 
       
-  }
+  };
   
   function onDelete(){
     transition(DELETING)
@@ -54,22 +54,19 @@ export default function Appointment(props){
     })
     .catch(()=>{
       transition(ERROR_DELETE, true)
-    })
+    });
     //setTimeout( ()=>transition(EMPTY), 400)
-  }
+  };
   function confirmation(){
     transition(CONFIRM)
-  }
+  };
   function edit(){
     transition(EDIT)
-  }
-  function show(){
-    transition(SHOW)
-  }
+  };
   function doubleBack(){
     back()
     back()
-  }
+  };
 
   return <>
         <article className="appointment"></article> 
