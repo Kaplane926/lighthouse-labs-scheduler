@@ -87,7 +87,7 @@ export default function Appointment(props){
             <>
             <Form 
             key={props.id}
-            interviewers={[props.interviewers]}
+            interviewers={props.interviewers}
             onCancel={back}
             onSave={save}
             />
@@ -121,7 +121,7 @@ export default function Appointment(props){
             <>
             <Form 
             key={props.id}
-            interviewers={[props.interviewers]}
+            interviewers={props.interviewers}
             onCancel={back}
             onSave={save}
             name={props.name}

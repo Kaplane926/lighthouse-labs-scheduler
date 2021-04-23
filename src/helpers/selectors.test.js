@@ -1,4 +1,4 @@
-import { getAppointmentsForDay, getInterview } from "helpers/selectors";
+/*import { getAppointmentsForDay, getInterview } from "helpers/selectors";
 
 const state = {
   days: [
@@ -155,3 +155,5 @@ test("getInterviewersForDay returns an empty array when the day is not found", (
   const result = getInterviewersForDay(state, "Wednesday");
   expect(result.length).toEqual(0);
 });
+
+*/

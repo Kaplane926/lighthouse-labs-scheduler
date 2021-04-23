@@ -24,6 +24,30 @@ export default function useApplicationData(){
     })
   }, [])
 
+
+  function getSpotsForDay(dayObj, appointments){
+    let spots = 0
+    for(const id of dayObj.appointments){
+      const appointment = appointments[id];
+      if (!appointment.interview){
+        spots ++;
+      }
+    }
+    return spots
+  };
+
+  function updateSpots(dayName, days, appointments){
+    const dayObj = days.find(day => day.name === dayName);
+    
+    const spots = getSpotsForDay(dayObj, appointments);
+
+    const newDay = { ...dayObj, spots };
+
+    const newDays = days.map(day => day.name === dayName ? newDay : day);
+
+    return newDays
+  };
+
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -33,7 +57,10 @@ export default function useApplicationData(){
       ...state.appointments,
       [id]: appointment
     };
-    console.log(interview)
+    const days = updateSpots(state.day, state.days, appointments)
+    console.log("days: ", days)
+    console.log("appointments: ", appointments)
+    
 
 
       return axios.put(`http://localhost:8001/api/appointments/${id}`, {interview})
@@ -41,10 +68,10 @@ export default function useApplicationData(){
         console.log("response: ", response)
         setState({
           ...state,
-          appointments
-        })
+          days,
+          appointments,
+        })        
       })
-      
       
   }
 
@@ -59,14 +86,17 @@ export default function useApplicationData(){
       [id]: appointment
     };
     
+    const days = updateSpots(state.day, state.days, appointments)
 
    return axios.delete(`http://localhost:8001/api/appointments/${id}`, { interview: null })
     .then((response)=>{
       console.log(response)
       setState({
         ...state,
+        days,
         appointments
       })
+      
     })
     
       
@@ -81,6 +111,9 @@ export default function useApplicationData(){
   
 
   const setDay = day => setState({ ...state, day });
+
+
+
 
  return { state, setDay, cancelInterview, bookInterview }
 

@@ -1,9 +1,11 @@
 import React from "react";
 import "components/InterviewerList.scss"
 import InterviewerListItem from "./InterviewerListItem"
+import PropTypes from 'prop-types';
 
-export default function InterviewerList(props){
-  const interviewersArray = props.interviewers[0]
+
+ function InterviewerList(props){
+  const interviewersArray = props.interviewers
   function isSelected(array){
     if(props.value === array.id){
       return true
@@ -29,3 +31,10 @@ export default function InterviewerList(props){
 </section>
 
 }
+
+
+InterviewerList.propTypes = {
+  interviewers: PropTypes.array.isRequired
+};
+
+export default InterviewerList;
