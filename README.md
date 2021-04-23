@@ -23,3 +23,7 @@ npm test
 ```sh
 npm run storybook
 ```
+## Screenshots
+!["Main interview scheduler page"](https://github.com/Kaplane926/lighthouse-labs-scheduler/blob/master/docs/Interview-Scheduler-Main.png?raw=true)
+!["Book an appointment](https://github.com/Kaplane926/lighthouse-labs-scheduler/blob/master/docs/Schedule-Interview.png?raw=true)
+!["Cancel an appointment (mobile)"](https://github.com/Kaplane926/lighthouse-labs-scheduler/blob/master/docs/Cancel-Interview-Moblie.png?raw=true)
