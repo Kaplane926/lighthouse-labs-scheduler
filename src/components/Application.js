@@ -7,6 +7,7 @@ import Appointment from "components/appointments/index";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 import useVisualMode from "hooks/useVisualMode"
 import useApplicationData from "hooks/useApplicationData"
+import Header from "components/appointments/header"
 
 
 export default function Application(props) {
@@ -62,7 +63,7 @@ export default function Application(props) {
               cancelInterview={cancelInterview}
             />)
         })}
-        <Appointment key="last" time="5pm" interviewers={dailyInterviewers} />
+        <Header key="last" time="5pm" />
       </section>
     </main>
   );
