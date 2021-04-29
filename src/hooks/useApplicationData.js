@@ -2,8 +2,10 @@ import React from "react"
 import { useState, useCallback, useEffect } from 'react'
 import axios from "axios";
 
-export default function useApplicationData(){
+//all the logic for the applications component is stored in this hook
 
+export default function useApplicationData(){
+//sets and stores the state needed for the app
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -11,6 +13,7 @@ export default function useApplicationData(){
     interviewers: {}
   });
 
+  //pulls days, appointments and interviewers from out database and stores them in state
   useEffect(()=>{
 
 
@@ -24,7 +27,7 @@ export default function useApplicationData(){
     })
   }, [])
 
-
+// takes in a day object and its appointments and returns remaining spots
   function getSpotsForDay(dayObj, appointments){
     let spots = 0
     for(const id of dayObj.appointments){
@@ -35,6 +38,8 @@ export default function useApplicationData(){
     }
     return spots
   };
+
+  //takes in a day, the days array and an array and returns a new array for days with the updated spots
 
   function updateSpots(dayName, days, appointments){
     const dayObj = days.find(day => day.name === dayName);
@@ -47,7 +52,7 @@ export default function useApplicationData(){
 
     return newDays
   };
-
+//takes an id and an interview array and adds the new interview into the state.
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -70,7 +75,7 @@ export default function useApplicationData(){
       })
       
   }
-
+//takes an interview id and removes the interview from state and from the database
   function cancelInterview(id){
 
     const appointment = {

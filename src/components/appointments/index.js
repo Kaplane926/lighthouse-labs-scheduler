@@ -9,7 +9,7 @@ import Status from "components/appointments/Status"
 import Confirm from "./Confirm";
 import Error from "components/appointments/Error"
 
-
+//variables saved to make use of our useVusualMode hook. The variables allow us to change to mode of components
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE ="CREATE";
@@ -20,11 +20,12 @@ const EDIT ="EDIT"
 const ERROR_DELETE ="ERROR_DELETE"
 const ERROR_SAVE ="ERROR_SAVE"
 
+//component to show all of the appointments, also contains some logic for saving/deleting appointments
 export default function Appointment(props){
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-
+//saves an interview
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -38,14 +39,8 @@ export default function Appointment(props){
       .catch(()=>{
         transition(ERROR_SAVE, true)
       });
-      
-       
-
-      
-
-      
   };
-  
+  //deletes an interview
   function onDelete(){
     transition(DELETING)
     props.cancelInterview(props.id)
@@ -55,7 +50,6 @@ export default function Appointment(props){
     .catch(()=>{
       transition(ERROR_DELETE, true)
     });
-    //setTimeout( ()=>transition(EMPTY), 400)
   };
   function confirmation(){
     transition(CONFIRM)

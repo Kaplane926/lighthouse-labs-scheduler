@@ -11,6 +11,7 @@ import Header from "components/appointments/header"
 
 
 export default function Application(props) {
+  //holds the state
   const {
     state,
     setDay,
@@ -18,9 +19,9 @@ export default function Application(props) {
     cancelInterview,
     
   } = useApplicationData();
-  
+  //sets appointments for the day
   const dailyAppointments = getAppointmentsForDay(state, state.day);
-  
+  //sets interviewers for the day
   const dailyInterviewers = getInterviewersForDay(state, state.day);
   
   return (
@@ -48,8 +49,6 @@ export default function Application(props) {
       <section className="schedule">
         {dailyAppointments.map((appointment)=>{
           const interview = getInterview(state, appointment.interview);
-          
-
           return (
             <Appointment
               key={appointment.id}

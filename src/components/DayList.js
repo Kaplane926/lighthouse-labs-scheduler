@@ -1,6 +1,8 @@
 import React from "react";
 import DayListItem from "./DayListItem";
 
+
+//creates the list of days for the main page
 export default function DayList(props) {
   
   const daysArray = props.days

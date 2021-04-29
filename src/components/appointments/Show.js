@@ -1,7 +1,7 @@
 import React from "react"
 
 
-
+//component to for when a timeslot contains an interview
 export default function Show(props){
   return <main className="appointment__card appointment__card--show">
   <section className="appointment__card-left">

@@ -2,19 +2,22 @@ import React, { useState } from "react"
 import Button from "components/Button"
 import InterviewerList from "components/InterviewerList"
 
+//component to create the form for creating/editing interviews
 export default function Form(props){
   const [name, setName] = useState(props.name || "")
   const [interviewer, setInterviewer] = useState(props.interviewer || null)
   const [error, setError] = useState("");
-  
+  //resets the form
   function reset(){
     setName("")
     setInterviewer(null)
   }
+  //cancels a create/edit form request
   function cancel(){
     reset()
     props.onCancel()
   }
+  //checks to make sure the form is a valid submission
   function validate() {
     if (name === "") {
       setError("Student name cannot be blank");
@@ -28,8 +31,6 @@ export default function Form(props){
     setError("");
     props.onSave(name, interviewer);
   }
-
-
   return <main className="appointment__card appointment__card--create">
   <section className="appointment__card-left">
     <form 

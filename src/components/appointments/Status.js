@@ -1,5 +1,6 @@
 import React from "react"
 
+//component for displaying a loading screen while async axios requests are happening
 export default function Status(props){
   return <main className="appointment__card appointment__card--status">
   <img

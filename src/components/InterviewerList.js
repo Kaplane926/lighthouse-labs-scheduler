@@ -3,9 +3,10 @@ import "components/InterviewerList.scss"
 import InterviewerListItem from "./InterviewerListItem"
 import PropTypes from 'prop-types';
 
-
+//creates the component that contains a list of interviewers for a given day
  function InterviewerList(props){
   const interviewersArray = props.interviewers
+  //checks to see if a given interviewer is selected so we can add stlye to it
   function isSelected(array){
     if(props.value === array.id){
       return true
@@ -31,7 +32,6 @@ import PropTypes from 'prop-types';
 </section>
 
 };
-
 
 InterviewerList.propTypes = {
   interviewers: PropTypes.array.isRequired

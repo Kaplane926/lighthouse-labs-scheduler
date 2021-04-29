@@ -1,4 +1,6 @@
 
+//returns an array of appointments for a given day
+
 export function getAppointmentsForDay(state, day) {
   let appointments = []
   for(const days of state.days){
@@ -9,6 +11,8 @@ export function getAppointmentsForDay(state, day) {
   };
   return appointments
 };
+
+// returns null if there is no interview in that slot, if there is an interview it returns an interview object
 
 export function getInterview(state, interview){
   if(interview === null){
@@ -27,6 +31,7 @@ export function getInterview(state, interview){
  
 };
   
+// Returns an array of available interviewers for a given day
 
 export function getInterviewersForDay(state, day) {
   let interviewers = []
