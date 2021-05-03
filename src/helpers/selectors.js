@@ -38,7 +38,6 @@ export function getInterviewersForDay(state, day) {
   for(const days of state.days){
     if (days.name === day){
       interviewers = days.interviewers.map(id=> state.interviewers[id] )
-    
     }
   };
   return interviewers
